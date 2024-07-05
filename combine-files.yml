@@ -1,0 +1,19 @@
+name: 'Combine Files'
+description: 'Combines two files into one'
+inputs:
+  file1:
+    description: 'First input file'
+    required: true
+  file2:
+    description: 'Second input file'
+    required: true
+  output:
+    description: 'Output file name'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - run: |
+        cat "${{ inputs.file1 }}" "${{ inputs.file2 }}" > "${{ inputs.output }}"
+      shell: bash
+      
