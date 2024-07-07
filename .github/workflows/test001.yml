@@ -19,4 +19,4 @@ jobs:
       with:
         chat_id: ${{ vars.TELEGRAM_CHAT_ID }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: ${{ steps.badge_data.outputs.json }}
+        message: ${{ steps.badge_data.outputs.value }}
