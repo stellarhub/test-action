@@ -1,0 +1,16 @@
+name: test 001
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Send Telegram messsage
+      uses: stellarhub/telegram-message-action@v1
+      with:
+        chat_id: ${{ vars.TELEGRAM_CHAT_ID }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: "This is a test"
