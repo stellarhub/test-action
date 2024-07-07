@@ -11,7 +11,7 @@ jobs:
     - name: Generate badge data
       id: badge_data
       run: |
-        VALUE=$(date -u +'%Y-%m-%d')
+        VALUE=$(date -u +'%Y-%m-%d %H:%M:%S')
         echo "value=$VALUE" >> $GITHUB_OUTPUT
 
     - name: Send Telegram messsage
