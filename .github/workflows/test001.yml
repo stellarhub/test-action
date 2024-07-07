@@ -8,9 +8,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Generate badge data
+      id: badge_data
+      run: |
+        VALUE=$(date -u +'%Y-%m-%d')
+        echo "value=$VALUE" >> $GITHUB_OUTPUT
+
     - name: Send Telegram messsage
       uses: stellarhub/telegram-message-action@v1
       with:
         chat_id: ${{ vars.TELEGRAM_CHAT_ID }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: "This is a test"
+        message: ${{ steps.badge_data.outputs.json }}
